@@ -24,3 +24,30 @@ export function links(type){
         type : type
     }
 }
+export function getBase(account,password){
+	return(dispatch, getState) => {
+		dispatch({
+			type: types.GET_BASE,
+			account: account,
+			password: password
+		});
+	}
+}
+export function getInfo(account,password){
+	return(dispatch, getState) => {
+		dispatch({
+			type: types.GET_INFO,
+			account: account,
+			password: password
+		})
+	}
+}
+
+export function change(){
+	return(dispatch,getState) => {
+		dispatch({
+			type:types.CHANGE,
+			b:'I am a redux arr!'
+		})
+	}
+}

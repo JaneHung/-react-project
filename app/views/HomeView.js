@@ -2,13 +2,16 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Router, Route, Link,IndexRoute,hashHistory } from 'react-router';
 import { connect} from 'react-redux';
-import {setInfo, delInfo, links} from '../actions/index.js';
+import {setInfo, delInfo, links, getInfo} from '../actions/index.js';
 
 
 
 
 var HomeView=React.createClass({
-	
+	componentWillMount: function(){
+		this.props.dispatch(getInfo('admin','123456'));
+		
+	},
 	setInfo : function(){
 		this.props.dispatch(setInfo('ken','1101110110','9000'));
 	},
@@ -34,8 +37,8 @@ var HomeView=React.createClass({
 						</section>
 						<section className="business row">
 							<div className="row business-item">
-								<span onClick={this.setInfo} className="book-ticket">预定机票</span>
-								<span onClick={this.delInfo} className="vip-server">会员服务</span>
+								<span onClick={this.setInfo} className="book-ticket">{this.props.Home.account}预定机票设置信息</span>
+								<span onClick={this.delInfo} className="vip-server">会员服务删除</span>
 							</div>
 							<div className="row business-item">
 							
@@ -43,7 +46,7 @@ var HomeView=React.createClass({
 						</section>
 					</header>
 					<section className="journey">
-						<div className="journey-list row">您现在还没有行程<br />赶快添加行程吧</div>
+						<div className="journey-list row">{this.props.Home.name}您现在还没有行程<br />赶快添加行程吧</div>
 						<div className="journey-operate row">
 							<span className="add-journey">添加行程</span>
 							<span className="history-journey">查看历史行程</span>

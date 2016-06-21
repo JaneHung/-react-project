@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { connect} from 'react-redux';
 import configureStore from './stores/configureStore';  
 import HomeView from "./views/HomeView";
+import UserView from "./views/UserView";
 import AppComponent from './components/productBox.js';
 import TestView1 from './demo/test01.js';
 import TestView2 from './demo/test02.js';
@@ -19,6 +20,7 @@ var RouterConfig=(
 		<Router history={hashHistory}>
 				<Route path='/' component={AppComponent}/>
 				<Route path="/home" component={HomeView}/>
+				<Route path="/user" component={UserView}/>
 				<Route path='/demo/test01'  component={TestView1} />
 				 <Route path='/demo/test02'  component={TestView2} />
 		  </Router>

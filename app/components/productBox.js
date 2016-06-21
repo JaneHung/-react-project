@@ -18,7 +18,8 @@ ProductBox = React.createClass({
                <div onClick={this.clickHandle}>click me dowm</div>
                <Link to="/demo/test01">To demo01</Link><br/>
                 <Link to="/demo/test02">To demo02</Link><br/>
-                  <Link to="/home">To /home</Link>
+                <Link to="/home">To /home</Link><br/>
+                <Link to="/user">User Info111</Link>
                
             </div>
         );
