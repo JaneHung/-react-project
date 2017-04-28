@@ -4,12 +4,13 @@ import { Router, Route, Link,IndexRoute,hashHistory } from 'react-router';
 import { connect} from 'react-redux';
 import {setInfo, delInfo, links, getInfo} from '../actions/index.js';
 
-
+import allCitys from '../api/citys.json';
 
 
 var HomeView=React.createClass({
 	componentWillMount: function(){
 		this.props.dispatch(getInfo('admin','123456'));
+		console.log(allCitys)
 		
 	},
 	setInfo : function(){
@@ -37,7 +38,7 @@ var HomeView=React.createClass({
 						</section>
 						<section className="business row">
 							<div className="row business-item">
-								<span onClick={this.setInfo} className="book-ticket">{this.props.Home.account}预定机票设置信息</span>
+								<span onClick={this.setInfo} className="book-ticket">{this.props.Home.account}{this.props.Home.test}预定机票设置信息</span>
 								<span onClick={this.delInfo} className="vip-server">会员服务删除</span>
 							</div>
 							<div className="row business-item">
